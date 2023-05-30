@@ -1,0 +1,11 @@
+Anaconda Powershell Prompt
+conda info -e
+conda activate SMF23
+D:
+cd AI
+cd pyml-rev-main
+pip install -r requirements-smf.txt
+piplist
+
+tensorflow                    2.12.0
+위에꺼가 설치되었는지 확인
