@@ -1,3 +1,5 @@
+# 브라우저에서 자바스크립트 실행하기
+
 from selenium.webdriver import Firefox, FirefoxOptions
 
 # Firefox 실행하기
