@@ -10,15 +10,15 @@ sheet = book.active
 
 # 서울을 제외한 인구를 구해서 쓰기 --- (※3)
 for i in range(0, 10):
-    total = int(sheet[str(chr(i + 66)) + "3"].value)
-    seoul = int(sheet[str(chr(i + 66)) + "4"].value)
+    total = int(sheet[str(chr(i + 66)) + "3"].value) # B3...K3 : 계
+    seoul = int(sheet[str(chr(i + 66)) + "4"].value) # B4...K4 : 서울
     output = total - seoul
     print("서울 제외 인구 =", output)
     # 쓰기 --- (※4)
     sheet[str(chr(i + 66)) + "21"] = output
     cell = sheet[str(chr(i + 66)) + "21"]
     # 폰트와 색상 변경해보기 --- (※5)
-    cell.font = openpyxl.styles.Font(size=14,color="FF0000")
+    cell.font = openpyxl.styles.Font(size=14,color="FF0000") # red
     cell.number_format = cell.number_format
 
 # 엑셀 파일 저장하기 --- (※6)

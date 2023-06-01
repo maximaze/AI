@@ -7,14 +7,17 @@ csv = codecs.open(filename, "r", "euc_kr").read()
 
 # CSV을 파이썬 리스트로 변환하기
 data = []
-rows = csv.split("\r\n")
+# rows = csv.split("\r\n")
+rows = csv.split("\n")
 
 for row in rows:
     if row == "": continue
     cells = row.split(",")
+    print('cells:',cells)
     data.append(cells)
 
 # 결과 출력하기
+print("[결과]")
 for c in data:
     print(c[1], c[2])
 

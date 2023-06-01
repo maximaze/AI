@@ -12,16 +12,21 @@ sheet = book.worksheets[0]
 data = []
 for row in sheet.rows:
     data.append([
-        row[0].value,
-        row[10].value
+        row[0].value, # 지역이름
+        row[10].value # 2018년도
     ])
 
 # 필요없는 줄(헤더, 연도, 계) 제거하기
-del data[0]
-del data[1]
-del data[2]
+del data[0:3]
+
+# del data[0]
+# del data[1]
+# del data[2]
+
+print(data)
 
 # 데이터를 인구 순서로 정렬합니다.
+# 오름차순 : 인구가 작은 값에서 큰 값으로 정렬
 data = sorted(data, key=lambda x:x[1])
 
 # 하위 5위를 출력합니다.
