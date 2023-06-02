@@ -17,8 +17,7 @@ conn.commit()
 # 데이터 넣기 --- (※3)
 cur = conn.cursor()
 cur.execute(
-    "INSERT INTO items (name,price) VALUES (?,?)",
-    ("Orange", 5200))
+    "INSERT INTO items (name,price) VALUES (?,?)", ("Orange", 5200))
 conn.commit()
 
 # 여러 데이터 연속으로 넣기 --- (※4)

@@ -13,6 +13,8 @@ db.drop_table('fruits')
 table = db.table('fruits')
 
 # 테이블에 데이터 추가하기 --- (※4)
+# table.insert( {'name': 'Banana', 'price': 6000, 'name':'melon', 'price':15000, 'name':'grape','price':12000} )
+# 2개 이상을 넣으면 맨뒤에 값만 잡힘
 table.insert( {'name': 'Banana', 'price': 6000} )
 table.insert( {'name': 'Orange', 'price': 12000} )
 table.insert( {'name': 'Mango', 'price': 8400} )

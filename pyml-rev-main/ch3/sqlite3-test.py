@@ -34,3 +34,6 @@ item_list = cur.fetchall()
 for it in item_list:
     print(it)
 
+# 
+conn.close()
+
