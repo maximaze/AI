@@ -1,5 +1,6 @@
 from sklearn import svm, metrics
 import random, re
+
 # 붓꽃의 CSV 데이터 읽어 들이기 --- (※1)
 csv = []
 with open('iris.csv', 'r', encoding='utf-8') as fp:
@@ -11,10 +12,13 @@ with open('iris.csv', 'r', encoding='utf-8') as fp:
         fn = lambda n : float(n) if re.match(r'^[0-9\.]+$', n) else n
         cols = list(map(fn, cols))
         csv.append(cols)
+        
 # 가장 앞 줄의 헤더 제거
 del csv[0]
+
 # 데이터 셔플하기(섞기) --- (※2)
 random.shuffle(csv)
+
 # 학습 전용 데이터와 테스트 전용 데이터 분할하기(2:1 비율) --- (※3)
 total_len = len(csv)
 train_len = int(total_len * 2 / 3)
@@ -23,16 +27,17 @@ train_label = []
 test_data = []
 test_label = []
 for i in range(total_len):
-    data  = csv[i][0:4]
-    label = csv[i][4]
-    if i < train_len:
+    data  = csv[i][0:4] # col: 0,1,2,3
+    label = csv[i][4]   # col: 4
+    if i < train_len:   # 0~99
         train_data.append(data)
         train_label.append(label)
-    else:
+    else: # 100~149
         test_data.append(data)
         test_label.append(label)
+        
 # 데이터를 학습시키고 예측하기 --- (※4)
-clf = svm.SVC()
+clf = svm.SVC() # kernel : "rbf"
 clf.fit(train_data, train_label)
 pre = clf.predict(test_data)
 # 정답률 구하기 --- (※5)
