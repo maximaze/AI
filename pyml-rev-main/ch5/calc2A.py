@@ -1,5 +1,8 @@
 # TensorFlow 읽어 들이기 --- (※1)
-import tensorflow as tf
+# import tensorflow as tf
+import tensorflow.compat.v1 as tf
+
+tf.compat.v1.disable_eager_execution()
 
 # 상수 정의하기 --- (※2)
 a = tf.constant(2)
@@ -18,9 +21,9 @@ def calc2_op():
 
 
 # 세션 시작하기 --- (※4)
-# res1 = calc1_op().numpy() # 식 평가하기
-res1 = calc1_op()   # 식 평가하기
+sess = tf.Session()
+res1 = sess.run(calc1_op())   # 식 평가하기
 print(res1)
-#res2 = calc2_op().numpy() # 식 평가하기
-res2 = calc2_op()   # 식 평가하기
+
+res2 = sess.run(calc2_op())   # 식 평가하기
 print(res2)

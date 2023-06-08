@@ -1,4 +1,12 @@
+# 넘파이 : numpy
+# 다차원 배열
+# 모든 원소는 동등하다
+
 import numpy as np
+
+
+# 2차원 배열
+
 # 10개의 float32 자료형 데이터 생성
 v = np.zeros(10, dtype=np.float32)
 print(v)
