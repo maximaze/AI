@@ -44,3 +44,18 @@ hist = model.fit(X_train, y_train)
 score = model.evaluate(X_test, y_test, verbose=1)
 print('loss=', score[0])
 print('accuracy=', score[1])
+
+#%%
+
+import random
+
+xrnd = random.randrange(0, 10000)
+print("예측용 난수: ", xrnd)
+
+
+xhat = X_test[xrnd]
+yhat = model.predict(xhat)
+
+print("예측결과 : ", yhat)
+
+

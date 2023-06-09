@@ -51,3 +51,30 @@ hist = model.fit(
 score = model.evaluate(X_test, y_test)
 print('loss=', score[0])
 print('accuracy=', score[1])
+
+
+
+#%%
+
+# 예측
+print("# 예측")
+import random
+
+xrnd = random.randrange(15001,20001)
+print("예측용 난수: ", xrnd)
+
+xpre = X[xrnd:xrnd+1]
+ypre = y[xrnd:xrnd+1]
+print("예측값: ", xpre)
+print("정답값: ", ypre)
+
+yhat = model.predict(xpre)
+print("예측결과: ",yhat)
+
+# 원본데이터
+print("원본데이터")
+print(csv.loc[xrnd])
+
+
+
+

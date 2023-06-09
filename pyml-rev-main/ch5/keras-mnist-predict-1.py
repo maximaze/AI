@@ -44,3 +44,22 @@ hist = model.fit(X_train, y_train)
 score = model.evaluate(X_test, y_test, verbose=1)
 print('loss=', score[0])
 print('accuracy=', score[1])
+
+#%%
+# 예측
+
+import random
+import numpy as np
+from numpy import argmax
+
+# 검증 데이터의 갯수로 난수를 발생해서 5개 선택
+xhat_idx = np.random.choice(X_test.shape[0],5)
+print("예측용 인덱스 데이터: ", xhat_idx)
+
+xhat = X_test[xhat_idx] # 5*784
+yhat = model.predict(xhat)
+
+print("예측결과 : ", yhat)
+
+for x in range(5):
+    print('#True: ', str(argmax(y_test[xhat_idx[x]])), ', predict:', str(yhat[x]))
